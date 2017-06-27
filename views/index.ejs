@@ -1,0 +1,19 @@
+<!Doctype html>
+<html>
+<head>
+	<title>Angular 1.x Seed Application</title>
+	<link rel="stylesheet" href="/dist/assets/css/all.css" />
+</head>
+<body ng-app="app">
+	<shared-header></shared-header>
+
+	<div id="main-containter" ng-controller="HomeComponentController as $homeCtrl">
+		<p>{{ $homeCtrl.name }}</p>
+	</div>
+
+	<shared-footer></shared-footer>
+
+	<script src="/angular.min.js"></script>
+	<script src="/dist/scripts.min.js"></script>
+</body>
+</html>
