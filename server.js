@@ -14,8 +14,38 @@ app.get('/', (req, res) => {
 });
 
 app.get('/name', (req, res) => {
+	let userList = [
+		{
+			id: '1',
+			name: 'Jane',
+			role: 'Designer',
+			location: 'New York',
+			twitter: 'gijane'
+		},
+		{
+			id: '2',
+			name: 'Bob',
+			role: 'Developer',
+			location: 'New York',
+			twitter: 'billybob'
+		},
+		{
+			id: '3',
+			name: 'Jim',
+			role: 'Developer',
+			location: 'Chicago',
+			twitter: 'jimbo'
+		},
+		{
+			id: '4',
+			name: 'Bill',
+			role: 'Designer',
+			location: 'LA',
+			twitter: 'dabill'
+		}
+	];
 	res.writeHead(200, { "Content-Type": "application/json" });
-	json = JSON.stringify({ name: 'Test' });
+	json = JSON.stringify(userList);
 	res.end(json);
 });
 

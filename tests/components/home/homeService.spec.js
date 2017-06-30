@@ -1,4 +1,4 @@
-describe('Users factory', () => {
+describe('Home service', () => {
 	let HomeService;
 	let userList = [
 		{
