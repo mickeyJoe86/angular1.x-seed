@@ -11,7 +11,7 @@ describe('User service', () => {
             'type': { 'name': 'electric' }
         }]
     };
-
+    const RESPONSE_ERROR = {"detail": "Not found."};
 
     beforeEach(angular.mock.module('components.userService'));
 
@@ -35,21 +35,18 @@ describe('User service', () => {
         it('should be defined', () => {
             expect(UserService.findByName).toBeDefined();
         });
-        it('should return a Pokemon when called with a valid name', function () {
-            var search = 'pikachu';
-
-            // Declare the endpoint we expect our service to hit and provide it with our mocked return values
+        it('should return a Pokemon when called with a valid name', () => {
+            let search = 'pikachu';            
             $httpBackend.whenGET(API + search).respond(200, $q.when(RESPONSE_SUCCESS));
 
             expect(UserService.findByName).not.toHaveBeenCalled();
             expect(result).toEqual({});
 
             UserService.findByName(search)
-                .then(function (res) {
+                .then((res) => {
                     result = res;
                 });
-
-            // Flush pending HTTP requests
+            
             $httpBackend.flush();
 
             expect(UserService.findByName).toHaveBeenCalledWith(search);
@@ -58,7 +55,5 @@ describe('User service', () => {
             expect(result.sprites.front_default).toContain('.png');
             expect(result.types[0].type.name).toEqual('electric');
         });
-
-
     });
 });
